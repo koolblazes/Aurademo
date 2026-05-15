@@ -4,33 +4,24 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AURAA — Relax. We've got this.</title>
-<meta name="description" content="AURAA is a vehicle-centric mobility infrastructure connecting verified drivers, vehicle owners, and riders. Your car earns while you work."/>
+<meta name="description" content="AURAA is Africa’s vehicle-centric mobility infrastructure. Turning idle vehicles into productive assets."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root {
   --green:#0a5c36;
-  --green-deep:#072b1a;
-  --green-mid:#0e7a49;
   --gold:#c9a84c;
   --gold-pale:rgba(201,168,76,0.12);
   --bg:#fdfdfb;
   --text:#1a1a1a;
-  --text-muted:#555;
   --border:rgba(0,0,0,0.06);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Outfit', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
+body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-/* NAVIGATION */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
   display: flex; justify-content: space-between; align-items: center;
@@ -39,7 +30,6 @@ nav {
 }
 .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--green); }
 
-/* HERO */
 .hero { padding: 180px 5vw 100px; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .badge {
   display: inline-block; padding: 6px 16px; background: var(--gold-pale);
@@ -48,21 +38,20 @@ nav {
 }
 h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 84px); line-height: 1.1; margin-bottom: 30px; }
 
-/* ECOSYSTEM GRID */
 .eco-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px; padding: 60px 5vw; max-width: 1200px; margin: 0 auto;
 }
-.eco-card { padding: 40px; border: 1px solid var(--border); border-radius: 20px; background: #fff; }
-.eco-card h3 { color: var(--green); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif; font-size: 24px; }
+.eco-card { padding: 40px; border: 1px solid var(--border); border-radius: 24px; background: #fff; transition: 0.3s; }
+.eco-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.eco-card h3 { color: var(--green); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif; font-size: 26px; }
 
-/* NOTIFICATION TOAST */
-#sync-toast {
+#network-toast {
   position: fixed; bottom: 30px; right: 30px; background: var(--green); color: white;
-  padding: 16px 24px; border-radius: 12px; display: none; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 20px 30px; border-radius: 15px; display: none; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-.btn { padding: 14px 28px; border-radius: 10px; font-weight: 600; cursor: pointer; border: none; transition: 0.2s; }
+.btn { padding: 16px 32px; border-radius: 12px; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; }
 .btn-primary { background: var(--green); color: white; }
 </style>
 </head>
@@ -71,69 +60,66 @@ h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 84px)
 
 <nav>
   <div class="logo">AURAA</div>
-  <button class="btn btn-primary" onclick="triggerDemo()">Test Network Sync</button>
+  <button class="btn btn-primary" onclick="testNetwork()">Run Network Test</button>
 </nav>
 
 <section class="hero">
-  <div class="badge">Vehicle-First Mobility Infrastructure</div>
+  <div class="badge">Mobility Infrastructure Layer</div>
   <h1>Activating Vehicles. <br/><span style="color:var(--gold)">Empowering Cities.</span></h1>
-  <p>AURAA is Africa’s insured vehicle activation network. We turn idle private cars into productive assets while providing professional drivers with the tools to earn.</p>
+  <p style="max-width:600px; color:#555; font-size:18px;">AURAA is Africa’s insured vehicle activation network. We turn idle assets into productive capital during work hours, connecting verified drivers with premium vehicles.</p>
 </section>
 
 <section class="eco-grid">
   <div class="eco-card">
     <h3>Work-Hour Yield</h3>
-    <p>Your car works while you do. Turn office parking hours into earning periods for verified drivers.</p>
+    <p>We enable vehicle owners to earn passive dividends while they work, by activating their cars in our high-trust pilot network.</p>
   </div>
   <div class="eco-card">
     <h3>Insurance Layer</h3>
-    <p>Integrated per-trip coverage provided by our **Insurance Partner** ensures every kilometer is protected.</p>
+    <p>Every trip is secured by our **Insurance Partner**, providing real-time, per-trip coverage for complete asset protection.</p>
   </div>
   <div class="eco-card">
     <h3>Connectivity Layer</h3>
-    <p>Seamless data and tracking powered by our **Telco Partner** infrastructure.</p>
+    <p>Real-time telemetry and high-speed data are powered by our dedicated **Telco Partner** infrastructure.</p>
   </div>
 </section>
 
-<div id="sync-toast"></div>
+<div id="network-toast"></div>
 
 <script>
-// Supabase Setup
+// Supabase Sync Initialization
 const supabaseUrl = 'https://yroffdxgkppmqngybboj.supabase.co';
 const supabaseKey = 'sb_publishable_OcRlo6xhsrvzSWCG5dGkoA_AYqt-fdh';
 const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-// Listen for network broadcasts
-async function startListener() {
+// Listen for the "Cross-Device" trigger
+async function listenToNetwork() {
   _supabase
     .channel('public:trips')
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'trips' }, payload => {
-      showToast("🚀 NETWORK ALERT: New Asset Activation Request Detected!");
+      showToast("📡 NETWORK SIGNAL: New Asset Activation sequence initiated.");
     })
     .subscribe();
 }
 
-// Demo function for investors
-async function triggerDemo() {
+async function testNetwork() {
   const { error } = await _supabase
     .from('trips')
-    .insert([{ origin: "Office", destination: "Market", price: 3500, status: 'pending' }]);
+    .insert([{ origin: "Lagos Office", destination: "Network Node", price: 0, status: 'test' }]);
   
   if (error) {
-    alert("Make sure you enabled 'Replication' for the trips table in Supabase!");
-  } else {
-    showToast("📡 Signal sent to the cloud...");
+    alert("Sync error. Please ensure Replication is enabled in your Supabase dashboard.");
   }
 }
 
 function showToast(msg) {
-  const t = document.getElementById('sync-toast');
+  const t = document.getElementById('network-toast');
   t.textContent = msg;
   t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 4000);
+  setTimeout(() => t.style.display = 'none', 5000);
 }
 
-window.onload = startListener;
+window.onload = listenToNetwork;
 </script>
 
 </body>
